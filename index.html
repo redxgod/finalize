@@ -3,1015 +3,511 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Automation & The Future Workforce</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Source+Sans+Pro:wght@300;400;600&family=Roboto+Mono:wght@300;400&display=swap" rel="stylesheet">
+    <title>Automation & Workforce</title>
     <style>
-        :root {
-            --primary-navy: #1a237e;
-            --electric-blue: #2196f3;
-            --bright-orange: #ff5722;
-            --soft-gray-light: #f5f5f5;
-            --soft-gray-dark: #424242;
-            --emerald-green: #4caf50;
-            --white: #ffffff;
-            --transition: all 0.3s ease;
-        }
-
+        /* Global Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
+        
         body {
-            font-family: 'Source Sans Pro', sans-serif;
-            color: var(--soft-gray-dark);
+            background-color: #f5f7fa;
+            color: #333;
             line-height: 1.6;
-            background-color: var(--white);
-            overflow-x: hidden;
         }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--primary-navy);
-        }
-
-        .monospace {
-            font-family: 'Roboto Mono', monospace;
-        }
-
+        
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 15px;
         }
-
-        /* Header & Navigation */
+        
+        /* Header Styles */
         header {
-            background-color: var(--primary-navy);
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
+            background: linear-gradient(135deg, #2c3e50 0%, #4a6491 100%);
+            color: white;
+            padding: 20px 0;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
-
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            margin-right: 10px;
+            font-size: 32px;
+        }
+        
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-
-        .logo {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: var(--white);
-        }
-
+        
         .nav-links {
             display: flex;
             list-style: none;
         }
-
+        
         .nav-links li {
-            margin-left: 2rem;
+            margin-left: 25px;
         }
-
+        
         .nav-links a {
-            color: var(--white);
+            color: white;
             text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 5px 10px;
+            border-radius: 4px;
         }
-
+        
         .nav-links a:hover {
-            color: var(--electric-blue);
+            background-color: rgba(255, 255, 255, 0.1);
         }
-
-        .hamburger {
-            display: none;
-            cursor: pointer;
+        
+        .active {
+            background-color: rgba(255, 255, 255, 0.2);
         }
-
+        
         /* Hero Section */
         .hero {
-            height: 100vh;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%234a6491" opacity="0.1"/><path d="M0 0L100 100" stroke="%232c3e50" stroke-width="2" opacity="0.2"/><path d="M100 0L0 100" stroke="%232c3e50" stroke-width="2" opacity="0.2"/></svg>');
+            padding: 80px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            color: #4a6491;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #4a6491;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background: #2c3e50;
+        }
+        
+        /* Content Sections */
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #2c3e50;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #4a6491;
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+        
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .topic-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .topic-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .topic-img {
+            height: 180px;
+            background-color: #4a6491;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, var(--primary-navy) 0%, var(--electric-blue) 100%);
-            position: relative;
-            overflow: hidden;
-            margin-top: 70px;
+            color: white;
+            font-size: 48px;
         }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 35%, rgba(33, 150, 243, 0.4) 0%, transparent 50%),
-                radial-gradient(circle at 75% 44%, rgba(255, 87, 34, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 50% 70%, rgba(76, 175, 80, 0.2) 0%, transparent 50%);
-            z-index: 1;
+        
+        .topic-content {
+            padding: 25px;
         }
-
-        .hero-content {
-            text-align: center;
-            color: var(--white);
-            z-index: 2;
-            max-width: 800px;
-            padding: 0 20px;
+        
+        .topic-content h3 {
+            margin-bottom: 15px;
+            color: #2c3e50;
         }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            color: var(--white);
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        
+        .topic-content ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
         }
-
-        .dynamic-text {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            min-height: 2.5rem;
-            position: relative;
+        
+        .topic-content li {
+            margin-bottom: 8px;
         }
-
-        .cta-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-        }
-
-        .btn {
-            padding: 1rem 2rem;
-            border-radius: 50px;
+        
+        .read-more {
+            color: #4a6491;
             text-decoration: none;
             font-weight: 600;
-            transition: var(--transition);
             display: inline-block;
+            margin-top: 10px;
         }
-
-        .btn-primary {
-            background-color: var(--bright-orange);
-            color: var(--white);
+        
+        /* Stats Section */
+        .stats {
+            background: #2c3e50;
+            color: white;
+            padding: 60px 0;
+            margin: 40px 0;
         }
-
-        .btn-primary:hover {
-            background-color: var(--white);
-            color: var(--bright-orange);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--white);
-            border: 2px solid var(--white);
-        }
-
-        .btn-secondary:hover {
-            background-color: var(--white);
-            color: var(--primary-navy);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Section Styles */
-        section {
-            padding: 5rem 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background-color: var(--bright-orange);
-        }
-
-        /* Dashboard Section */
-        .dashboard {
-            background-color: var(--soft-gray-light);
-        }
-
+        
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
+            gap: 30px;
         }
-
-        .stat-card {
-            background-color: var(--white);
-            border-radius: 10px;
-            padding: 2rem;
+        
+        .stat-item {
             text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: var(--transition);
+            padding: 20px;
         }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-
+        
         .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--electric-blue);
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            font-size: 1rem;
-            color: var(--soft-gray-dark);
-        }
-
-        .chart-container {
-            background-color: var(--white);
-            border-radius: 10px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .chart-title {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-
-        .chart {
-            height: 300px;
-            position: relative;
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-around;
-            padding: 0 1rem;
-        }
-
-        .chart-bar {
-            width: 60px;
-            background: linear-gradient(to top, var(--electric-blue) 0%, var(--primary-navy) 100%);
-            margin: 0 10px;
-            border-top-left-radius: 5px;
-            border-top-right-radius: 5px;
-            position: relative;
-            transition: var(--transition);
-            cursor: pointer;
-        }
-
-        .chart-bar:hover {
-            transform: scale(1.05);
-        }
-
-        .chart-label {
-            position: absolute;
-            bottom: -30px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 0.8rem;
-            text-align: center;
-            width: 100px;
-        }
-
-        /* Workforce Transformation */
-        .workflow-container {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .workflow-step {
-            display: flex;
-            align-items: center;
-            background-color: var(--white);
-            border-radius: 10px;
-            padding: 2rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: var(--transition);
-        }
-
-        .workflow-step:hover {
-            transform: translateX(10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .step-number {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--bright-orange);
-            margin-right: 1.5rem;
-            min-width: 50px;
-            text-align: center;
-        }
-
-        .step-content {
-            flex: 1;
-        }
-
-        /* Industry Spotlight */
-        .industry-spotlight {
-            background-color: var(--soft-gray-light);
-        }
-
-        .tabs {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .tab-btn {
-            padding: 1rem 2rem;
-            background-color: var(--white);
-            border: none;
-            border-radius: 50px;
-            margin: 0 0.5rem 1rem;
-            cursor: pointer;
-            font-weight: 600;
-            transition: var(--transition);
-        }
-
-        .tab-btn.active {
-            background-color: var(--electric-blue);
-            color: var(--white);
-        }
-
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-
-        .industry-card {
-            background-color: var(--white);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: var(--transition);
-        }
-
-        .industry-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .industry-img {
-            height: 200px;
-            background-color: var(--electric-blue);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 2rem;
-        }
-
-        .industry-content {
-            padding: 1.5rem;
-        }
-
-        .industry-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        /* Future Insights */
-        .future-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .future-card {
-            background: linear-gradient(135deg, var(--primary-navy) 0%, var(--electric-blue) 100%);
-            color: var(--white);
-            border-radius: 10px;
-            padding: 2rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: var(--transition);
-        }
-
-        .future-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .future-card h3 {
-            color: var(--white);
-            margin-bottom: 1rem;
-        }
-
-        /* Resources Section */
-        .resources {
-            background-color: var(--soft-gray-light);
-        }
-
-        .resources-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .resource-card {
-            background-color: var(--white);
-            border-radius: 10px;
-            padding: 2rem;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: var(--transition);
-        }
-
-        .resource-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .resource-icon {
             font-size: 3rem;
-            margin-bottom: 1rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #4a6491;
         }
-
-        .resource-link {
-            display: inline-block;
-            margin-top: 1rem;
-            color: var(--electric-blue);
-            font-weight: 600;
-            text-decoration: none;
-            transition: var(--transition);
+        
+        .stat-text {
+            font-size: 1.1rem;
         }
-
-        .resource-link:hover {
-            color: var(--primary-navy);
-        }
-
+        
         /* Footer */
         footer {
-            background-color: var(--primary-navy);
-            color: var(--white);
-            padding: 3rem 0 1rem;
+            background: #2c3e50;
+            color: white;
+            padding: 40px 0 20px;
         }
-
+        
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
+            gap: 30px;
+            margin-bottom: 30px;
         }
-
-        .footer-column h3 {
-            color: var(--white);
-            margin-bottom: 1.5rem;
-            font-size: 1.2rem;
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
         }
-
+        
+        .footer-section h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: #4a6491;
+        }
+        
         .footer-links {
             list-style: none;
         }
-
+        
         .footer-links li {
-            margin-bottom: 0.8rem;
+            margin-bottom: 10px;
         }
-
+        
         .footer-links a {
-            color: rgba(255, 255, 255, 0.8);
+            color: #ccc;
             text-decoration: none;
-            transition: var(--transition);
+            transition: color 0.3s;
         }
-
+        
         .footer-links a:hover {
-            color: var(--bright-orange);
+            color: white;
         }
-
+        
         .copyright {
             text-align: center;
-            padding-top: 2rem;
+            padding-top: 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.6);
+            color: #ccc;
         }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes textCycle {
-            0% { opacity: 0; transform: translateY(20px); }
-            20% { opacity: 1; transform: translateY(0); }
-            80% { opacity: 1; transform: translateY(0); }
-            100% { opacity: 0; transform: translateY(-20px); }
-        }
-
-        .dynamic-text span {
-            position: absolute;
-            left: 0;
-            right: 0;
-            opacity: 0;
-            animation: textCycle 12s infinite;
-        }
-
-        .dynamic-text span:nth-child(2) {
-            animation-delay: 4s;
-        }
-
-        .dynamic-text span:nth-child(3) {
-            animation-delay: 8s;
-        }
-
+        
         /* Responsive Design */
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
+        @media (max-width: 768px) {
             .nav-links {
                 display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 70px;
-                left: 0;
-                width: 100%;
-                background-color: var(--primary-navy);
-                padding: 1rem 0;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
             }
             
-            .nav-links.active {
-                display: flex;
-            }
-            
-            .nav-links li {
-                margin: 0.5rem 0;
-                text-align: center;
-            }
-            
-            .hamburger {
-                display: block;
-                color: var(--white);
-                font-size: 1.5rem;
-            }
-            
-            .workflow-step {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .step-number {
-                margin-right: 0;
-                margin-bottom: 1rem;
-            }
-        }
-
-        @media (max-width: 768px) {
             .hero h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
             
-            .cta-buttons {
-                flex-direction: column;
-            }
-            
-            .section-title h2 {
-                font-size: 2rem;
-            }
-            
-            .chart {
-                flex-direction: column;
-                align-items: center;
-                height: auto;
-            }
-            
-            .chart-bar {
-                width: 80%;
-                height: 40px;
-                margin-bottom: 40px;
-                border-top-left-radius: 0;
-                border-bottom-right-radius: 5px;
-            }
-            
-            .chart-label {
-                bottom: -40px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-            
-            .dynamic-text {
-                font-size: 1.2rem;
-            }
-            
-            .btn {
-                padding: 0.8rem 1.5rem;
+            .hero p {
+                font-size: 1rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header & Navigation -->
+    <!-- Header -->
     <header>
         <div class="container">
             <nav>
-                <div class="logo">AutomationFuture</div>
+                <div class="logo">
+                    <span class="logo-icon">🤖</span>
+                    <span>Automation & Workforce</span>
+                </div>
                 <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#automation">Automation Insights</a></li>
-                    <li><a href="#workforce">Workforce Evolution</a></li>
-                    <li><a href="#industry">Industry Solutions</a></li>
-                    <li><a href="#future">Future Scenarios</a></li>
-                    <li><a href="#resources">Resources</a></li>
-                    <li><a href="#about">About</a></li>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">Impact</a></li>
+                    <li><a href="#">Industries</a></li>
+                    <li><a href="#">Future</a></li>
+                    <li><a href="#">Solutions</a></li>
+                    <li><a href="#">Resources</a></li>
                 </ul>
-                <div class="hamburger">☰</div>
             </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>Navigating Tomorrow's Workforce: Where Human Potential Meets Automation Excellence</h1>
-            <div class="dynamic-text">
-                <span>Reskilling for the Future</span>
-                <span>Embracing Digital Transformation</span>
-                <span>Building Human-AI Partnerships</span>
-            </div>
-            <div class="cta-buttons">
-                <a href="#automation" class="btn btn-primary">Explore Automation Trends</a>
-                <a href="#workforce" class="btn btn-secondary">Workforce Development Hub</a>
-            </div>
+    <section class="hero">
+        <div class="container">
+            <h1>Automation and the Future of Work</h1>
+            <p>Exploring how automation technologies are transforming industries, reshaping job markets, and creating new opportunities for the global workforce.</p>
+            <a href="#" class="btn">Explore the Impact</a>
         </div>
     </section>
 
-    <!-- Automation Dashboard -->
-    <section class="dashboard" id="automation">
-        <div class="container">
-            <div class="section-title">
-                <h2>Automation Dashboard</h2>
-                <p>Real-time insights into automation adoption and impact</p>
-            </div>
-
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number">47%</div>
-                    <div class="stat-label">Jobs with high automation potential</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">$15.7T</div>
-                    <div class="stat-label">Potential economic impact by 2030</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">69%</div>
-                    <div class="stat-label">Companies accelerating automation due to COVID-19</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">97M</div>
-                    <div class="stat-label">New roles expected to emerge by 2025</div>
-                </div>
-            </div>
-
-            <div class="chart-container">
-                <h3 class="chart-title">Automation Impact by Industry</h3>
-                <div class="chart">
-                    <div class="chart-bar" style="height: 80%;">
-                        <div class="chart-label">Manufacturing</div>
-                    </div>
-                    <div class="chart-bar" style="height: 60%;">
-                        <div class="chart-label">Retail</div>
-                    </div>
-                    <div class="chart-bar" style="height: 45%;">
-                        <div class="chart-label">Healthcare</div>
-                    </div>
-                    <div class="chart-bar" style="height: 30%;">
-                        <div class="chart-label">Education</div>
-                    </div>
-                    <div class="chart-bar" style="height: 55%;">
-                        <div class="chart-label">Finance</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Workforce Transformation -->
-    <section id="workforce">
-        <div class="container">
-            <div class="section-title">
-                <h2>Workforce Transformation</h2>
-                <p>Pathways to adapt and thrive in the age of automation</p>
-            </div>
-
-            <div class="workflow-container">
-                <div class="workflow-step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3>Skills Assessment</h3>
-                        <p>Evaluate current skills and identify areas for development in relation to automation trends.</p>
-                    </div>
-                </div>
-                <div class="workflow-step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3>Learning Pathways</h3>
-                        <p>Access customized learning resources to develop technical and soft skills needed for the future.</p>
-                    </div>
-                </div>
-                <div class="workflow-step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>Implementation</h3>
-                        <p>Apply new skills in real-world scenarios through projects and collaborative opportunities.</p>
-                    </div>
-                </div>
-                <div class="workflow-step">
-                    <div class="step-number">4</div>
-                    <div class="step-content">
-                        <h3>Career Advancement</h3>
-                        <p>Leverage newly acquired skills to transition into roles with greater automation resilience.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Industry Spotlight -->
-    <section class="industry-spotlight" id="industry">
-        <div class="container">
-            <div class="section-title">
-                <h2>Industry Spotlight</h2>
-                <p>How different sectors are adapting to automation</p>
-            </div>
-
-            <div class="tabs">
-                <button class="tab-btn active" data-tab="manufacturing">Manufacturing</button>
-                <button class="tab-btn" data-tab="healthcare">Healthcare</button>
-                <button class="tab-btn" data-tab="finance">Finance</button>
-                <button class="tab-btn" data-tab="retail">Retail</button>
-                <button class="tab-btn" data-tab="education">Education</button>
-            </div>
-
-            <div class="tab-content active" id="manufacturing">
-                <div class="industry-grid">
-                    <div class="industry-card">
-                        <div class="industry-img">Robotic Assembly</div>
-                        <div class="industry-content">
-                            <h3>Smart Factories</h3>
-                            <p>IoT-connected devices and AI-driven systems are revolutionizing production lines, increasing efficiency by up to 30%.</p>
-                        </div>
-                    </div>
-                    <div class="industry-card">
-                        <div class="industry-img">Predictive Maintenance</div>
-                        <div class="industry-content">
-                            <h3>Predictive Maintenance</h3>
-                            <p>Machine learning algorithms predict equipment failures before they happen, reducing downtime by 45%.</p>
-                        </div>
-                    </div>
-                    <div class="industry-card">
-                        <div class="industry-img">Customization</div>
-                        <div class="industry-content">
-                            <h3>Mass Customization</h3>
-                            <p>Automation enables cost-effective customization at scale, meeting individual customer needs efficiently.</p>
-                        </div>
-                    </div>
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Topics Grid -->
+        <h2 class="section-title">Key Topics in Automation</h2>
+        <div class="topics-grid">
+            <!-- Topic 1 -->
+            <div class="topic-card">
+                <div class="topic-img">📊</div>
+                <div class="topic-content">
+                    <h3>Impact on Employment</h3>
+                    <ul>
+                        <li>Job displacement in routine-based roles</li>
+                        <li>Creation of new tech-focused positions</li>
+                        <li>Changing skill requirements across industries</li>
+                        <li>Economic implications of workforce transition</li>
+                    </ul>
+                    <a href="#" class="read-more">Read More →</a>
                 </div>
             </div>
             
-            <div class="tab-content" id="healthcare">
-                <div class="industry-grid">
-                    <div class="industry-card">
-                        <div class="industry-img">Telemedicine</div>
-                        <div class="industry-content">
-                            <h3>Remote Diagnostics</h3>
-                            <p>AI-powered tools enable accurate remote diagnosis, expanding healthcare access to underserved areas.</p>
-                        </div>
-                    </div>
-                    <div class="industry-card">
-                        <div class="industry-img">Robot Surgery</div>
-                        <div class="industry-content">
-                            <h3>Surgical Assistance</h3>
-                            <p>Robotic systems enhance surgeon precision, reducing procedure times and improving patient outcomes.</p>
-                        </div>
-                    </div>
-                    <div class="industry-card">
-                        <div class="industry-img">Data Analysis</div>
-                        <div class="industry-content">
-                            <h3>Predictive Analytics</h3>
-                            <p>Machine learning identifies health trends and predicts outbreaks, enabling proactive healthcare interventions.</p>
-                        </div>
-                    </div>
+            <!-- Topic 2 -->
+            <div class="topic-card">
+                <div class="topic-img">🏭</div>
+                <div class="topic-content">
+                    <h3>Industry Transformation</h3>
+                    <ul>
+                        <li>Manufacturing: Robotics and smart factories</li>
+                        <li>Healthcare: AI diagnostics and robotic surgery</li>
+                        <li>Retail: Automated checkout and inventory systems</li>
+                        <li>Transportation: Autonomous vehicles and drones</li>
+                    </ul>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </div>
+            
+            <!-- Topic 3 -->
+            <div class="topic-card">
+                <div class="topic-img">🔧</div>
+                <div class="topic-content">
+                    <h3>Skills for the Future</h3>
+                    <ul>
+                        <li>Technical literacy and digital skills</li>
+                        <li>Critical thinking and problem-solving</li>
+                        <li>Creativity and innovation capabilities</li>
+                        <li>Adaptability and continuous learning</li>
+                    </ul>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </div>
+            
+            <!-- Topic 4 -->
+            <div class="topic-card">
+                <div class="topic-img">⚖️</div>
+                <div class="topic-content">
+                    <h3>Policy Implications</h3>
+                    <ul>
+                        <li>Labor laws and regulations for automated workplaces</li>
+                        <li>Universal Basic Income (UBI) debates</li>
+                        <li>Education system adaptations</li>
+                        <li>International cooperation on automation standards</li>
+                    </ul>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </div>
+            
+            <!-- Topic 5 -->
+            <div class="topic-card">
+                <div class="topic-img">🤝</div>
+                <div class="topic-content">
+                    <h3>Human-Machine Collaboration</h3>
+                    <ul>
+                        <li>Cobots: Collaborative robots in workplaces</li>
+                        <li>AI-assisted decision making</li>
+                        <li>Augmented reality for skill enhancement</li>
+                        <li>Ethical considerations in human-AI interaction</li>
+                    </ul>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </div>
+            
+            <!-- Topic 6 -->
+            <div class="topic-card">
+                <div class="topic-img">🌍</div>
+                <div class="topic-content">
+                    <h3>Global Perspectives</h3>
+                    <ul>
+                        <li>Varied adoption rates across countries</li>
+                        <li>Impact on developing economies</li>
+                        <li>Cultural attitudes toward automation</li>
+                        <li>International workforce mobility</li>
+                    </ul>
+                    <a href="#" class="read-more">Read More →</a>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Future Insights -->
-    <section id="future">
-        <div class="container">
-            <div class="section-title">
-                <h2>Future Insights</h2>
-                <p>Expert predictions and strategic foresight</p>
+        
+        <!-- Stats Section -->
+        <section class="stats">
+            <div class="container">
+                <h2 class="section-title" style="color: white;">Automation by the Numbers</h2>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">47%</div>
+                        <div class="stat-text">of jobs at risk of automation</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">97M</div>
+                        <div class="stat-text">new roles may emerge by 2025</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">$15T</div>
+                        <div class="stat-text">potential GDP boost from AI by 2030</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50%</div>
+                        <div class="stat-text">of companies accelerated automation due to COVID-19</div>
+                    </div>
+                </div>
             </div>
-
-            <div class="future-cards">
-                <div class="future-card">
-                    <h3>2025 Outlook</h3>
-                    <p>Human-AI collaboration becomes standard in knowledge work, with AI handling routine tasks while humans focus on creative problem-solving.</p>
+        </section>
+        
+        <!-- Additional Topics -->
+        <h2 class="section-title">Additional Areas of Interest</h2>
+        <div class="topics-grid">
+            <!-- Topic 7 -->
+            <div class="topic-card">
+                <div class="topic-img">📚</div>
+                <div class="topic-content">
+                    <h3>Education Revolution</h3>
+                    <ul>
+                        <li>Lifelong learning models</li>
+                        <li>Micro-credentials and digital badges</li>
+                        <li>Personalized learning through AI</li>
+                        <li>VR and AR in skill training</li>
+                    </ul>
+                    <a href="#" class="read-more">Read More →</a>
                 </div>
-                <div class="future-card">
-                    <h3>2030 Projections</h3>
-                    <p>Automation could displace 20% of current jobs but create many new roles in technology development, maintenance, and ethical oversight.</p>
-                </div>
-                <div class="future-card">
-                    <h3>2040 Vision</h3>
-                    <p>Fully autonomous systems manage routine operations across industries, while human workers specialize in innovation, strategy, and interpersonal roles.</p>
+            </div>
+            
+            <!-- Topic 8 -->
+            <div class="topic-card">
+                <div class="topic-img">💡</div>
+                <div class="topic-content">
+                    <h3>Entrepreneurial Opportunities</h3>
+                    <ul>
+                        <li>Automation-as-a-Service startups</li>
+                        <li>Niche applications of AI and robotics</li>
+                        <li>Solving automation transition challenges</li>
+                        <li>New business models enabled by automation</li>
+                    </ul>
+                    <a href="#" class="read-more">Read More →</a>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Resources Section -->
-    <section class="resources" id="resources">
-        <div class="container">
-            <div class="section-title">
-                <h2>Resources</h2>
-                <p>Tools and materials to navigate the future of work</p>
-            </div>
-
-            <div class="resources-grid">
-                <div class="resource-card">
-                    <div class="resource-icon">📊</div>
-                    <h3>Interactive Tools</h3>
-                    <p>Use our automation impact calculator and skills assessment tools to plan your career path.</p>
-                    <a href="#" class="resource-link">Explore Tools →</a>
-                </div>
-                <div class="resource-card">
-                    <div class="resource-icon">📚</div>
-                    <h3>Learning Resources</h3>
-                    <p>Access our curated collection of courses, articles, and guides on automation technologies.</p>
-                    <a href="#" class="resource-link">Browse Resources →</a>
-                </div>
-                <div class="resource-card">
-                    <div class="resource-icon">🎧</div>
-                    <h3>Podcasts & Videos</h3>
-                    <p>Listen to industry experts discuss the impact of automation on different sectors.</p>
-                    <a href="#" class="resource-link">Watch & Listen →</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
+    </main>
+    
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-column">
-                    <h3>AutomationFuture</h3>
-                    <p>Navigating the intersection of automation technology and workforce transformation.</p>
+                <div class="footer-section">
+                    <h3>About This Project</h3>
+                    <p>This website explores the complex relationship between automation technologies and the workforce, providing insights and resources for navigating the future of work.</p>
                 </div>
-                <div class="footer-column">
+                <div class="footer-section">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#automation">Automation Insights</a></li>
-                        <li><a href="#workforce">Workforce Evolution</a></li>
-                        <li><a href="#industry">Industry Solutions</a></li>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Key Statistics</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                        <li><a href="#">Future Predictions</a></li>
+                        <li><a href="#">Policy Recommendations</a></li>
                     </ul>
                 </div>
-                <div class="footer-column">
+                <div class="footer-section">
                     <h3>Resources</h3>
                     <ul class="footer-links">
                         <li><a href="#">Research Papers</a></li>
-                        <li><a href="#">Case Studies</a></li>
-                        <li><a href="#">Learning Materials</a></li>
-                        <li><a href="#">Webinars</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Contact</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Get in Touch</a></li>
-                        <li><a href="#">Subscribe</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Industry Reports</a></li>
+                        <li><a href="#">Educational Courses</a></li>
+                        <li><a href="#">Toolkits for Businesses</a></li>
+                        <li><a href="#">Workforce Training</a></li>
                     </ul>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2023 AutomationFuture. All rights reserved.</p>
+                <p>&copy; 2023 Automation & Workforce Initiative. All rights reserved.</p>
             </div>
         </div>
     </footer>
-
-    <script>
-        // Mobile Navigation
-        document.querySelector('.hamburger').addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.toggle('active');
-        });
-
-        // Tab Functionality
-        const tabBtns = document.querySelectorAll('.tab-btn');
-        const tabContents = document.querySelectorAll('.tab-content');
-
-        tabBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Remove active class from all buttons and contents
-                tabBtns.forEach(b => b.classList.remove('active'));
-                tabContents.forEach(c => c.classList.remove('active'));
-                
-                // Add active class to clicked button
-                btn.classList.add('active');
-                
-                // Show corresponding content
-                const tabId = btn.getAttribute('data-tab');
-                document.getElementById(tabId).classList.add('active');
-            });
-        });
-
-        // Animate stats on scroll
-        function animateStats() {
-            const statNumbers = document.querySelectorAll('.stat-number');
-            const statsSection = document.querySelector('.dashboard');
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        statNumbers.forEach(stat => {
-                            const target = parseInt(stat.textContent.replace(/[^\d]/g, ''));
-                            let current = 0;
-                            const increment = target / 50;
-                            
-                            const timer = setInterval(() => {
-                                current += increment;
-                                if (current >= target) {
-                                    stat.textContent = stat.textContent.replace(/\d+/, target);
-                                    clearInterval(timer);
-                                } else {
-                                    stat.textContent = stat.textContent.replace(/\d+/, Math.round(current));
-                                }
-                            }, 30);
-                        });
-                        
-                        observer.disconnect();
-                    }
-                });
-            }, { threshold: 0.5 });
-            
-            observer.observe(statsSection);
-        }
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Initialize when page loads
-        window.addEventListener('DOMContentLoaded', () => {
-            animateStats();
-        });
-    </script>
 </body>
 </html>
